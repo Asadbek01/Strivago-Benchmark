@@ -1,7 +1,7 @@
 import { AccommodationSchema } from "./accomadSchema";
 import mongoose from "mongoose";
 import {UserSchema} from './userSchema'
-import IUser from '../interfaces/Iuser'
+//import IUser from '../interfaces/Iuser'
 import {Model, Types } from "mongoose"
 
 const { model } = mongoose;

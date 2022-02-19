@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from "bcrypt"
-import IUser from '../interfaces/Iuser'
+//import IUser from '../interfaces/Iuser'
 import { Model } from 'mongoose';
 import {Document} from 'mongoose'
 
@@ -22,7 +22,7 @@ export const UserSchema = new Schema<IUser, UserModel>({
   name: { type: String },
   surname: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String },
+  password: { type: String, required: true },
   role: { type: String, default: "Guest", enum: ["Guest", "Host", "Attacker😨"] },
 })
 

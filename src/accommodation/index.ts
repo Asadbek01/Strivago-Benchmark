@@ -1,14 +1,12 @@
 import express from "express";
 import { AccommodationModel } from "../Schema/models";
-// import q2m from "query-to-mongo";
 
 const accommodationRouter = express.Router();
 
 accommodationRouter.get("/", async (req, res, next) => {
   try {
-    // const query = q2m (req.query)
+    //const query = q2m (req.query)
     const accommodation = await AccommodationModel.find();
-    // query.criteria, query.options.fields
     // .sort(query.options.sort)
     // .skip(query.options.skip)
     // .limit(query.options.limit)

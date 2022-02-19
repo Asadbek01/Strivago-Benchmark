@@ -70,7 +70,7 @@ usersRouter.post("/login", async (req:any, res:any, next:any) => {
 
 usersRouter.get("/me", JWTAuthMiddleware, async (req:any, res, next) => {
   try {
-    req.user.name = req.body.name
+    req.user.role = req.body.role
     await req.user.save()
     res.send({ user: req.user })
   } catch (error) {

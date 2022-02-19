@@ -2,9 +2,10 @@ import createHttpError from "http-errors";
 import {UserSchema} from "../Schema/userSchema";
 import { UserModel } from "../Schema/models";
 import { verifyJWT } from "./tools";
+import { Request, Response, NextFunction, RequestHandler } from "express";
 
 
-export const JWTAuthMiddleware = async (req:any, res:any, next:any) => {
+export const JWTAuthMiddleware: RequestHandler = async (req, res, next) => {
   // 1. Check if Authorization header is received, if it is not --> 401
   if (!req.headers.authorization) {
     next(
@@ -18,7 +19,7 @@ export const JWTAuthMiddleware = async (req:any, res:any, next:any) => {
 
       // 3. Verify the token, if everything goes fine we are getting back the _id of the logged in user, otherwise an error will be thrown by jwt library
 
-      const decodedToken:any = await verifyJWT(token);
+      const decodedToken = await verifyJWT(token)
 
       console.log("DECODED TOKEN ", decodedToken);
 
