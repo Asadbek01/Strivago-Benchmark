@@ -6,5 +6,5 @@ export const AccommodationSchema = new Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   maxGuests: { type: Number, required: true },
-  role: [{ type: mongoose.Schema.Types.String, ref: "Users" }],
+  host: { type: Schema.Types.ObjectId, required: true, ref: 'User' }
 });

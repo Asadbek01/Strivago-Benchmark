@@ -5,11 +5,7 @@ const accommodationRouter = express.Router();
 
 accommodationRouter.get("/", async (req, res, next) => {
   try {
-    //const query = q2m (req.query)
     const accommodation = await AccommodationModel.find();
-    // .sort(query.options.sort)
-    // .skip(query.options.skip)
-    // .limit(query.options.limit)
     if (accommodation) {
       res.status(200).send(accommodation);
     } else {
@@ -62,7 +58,7 @@ accommodationRouter.put("/:id", async (req, res, next) => {
       res.status(404).send();
     }
   } catch (error) {
-    res.status(404).send(); // this needs to change to next(httpCreateError())
+    res.status(404).send(); 
     console.log(error);
   }
 });

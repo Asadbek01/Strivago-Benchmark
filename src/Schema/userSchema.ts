@@ -6,7 +6,7 @@ import {Document} from 'mongoose'
 import { IUser } from '../interfaces/Iuser';
 
 interface UserDocument extends Document {
-  _id: number | string | null,
+  _id: string,
   name: string | any,
   surname: string,
   email: string,
@@ -41,7 +41,7 @@ UserSchema.pre<any>("save", async function (next) {
 UserSchema.methods.toJSON = function () {
   const userDocument = this
   const userObject = userDocument.toObject()
-  // delete userObject.password
+  delete userObject.password
   delete userObject.__v
 
   return userObject
