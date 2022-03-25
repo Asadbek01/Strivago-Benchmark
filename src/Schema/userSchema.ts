@@ -3,6 +3,7 @@ import bcrypt from "bcrypt"
 //import IUser from '../interfaces/Iuser'
 import { Model } from 'mongoose';
 import {Document} from 'mongoose'
+import { IUser } from '../interfaces/Iuser';
 
 interface UserDocument extends Document {
   _id: number | string | null,

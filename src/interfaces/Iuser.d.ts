@@ -1,5 +1,5 @@
-interface IUser{
-    _id: number | string | null,
+ export interface IUser{
+    _id: string ,
     name: string | any, 
     surname: string,
     email: string,

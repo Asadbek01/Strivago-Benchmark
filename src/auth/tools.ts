@@ -1,17 +1,16 @@
 import jwt from "jsonwebtoken";
-//import  IUser  from "../interfaces/Iuser";
-
+import { IUser } from "../interfaces/Iuser";
 
 
 //CREATE USER INTERFACE
 
-export const JWTAuthenticate = async (user:IUser) => {
+export const JWTAuthenticate = async (user: IUser) => {
   const accessToken = await generateJWT({ _id: user._id } );
 
   return {accessToken};
 };
 
-const generateJWT = (payload: { _id: string }) =>
+const generateJWT = (payload: { _id : any}) =>
   new Promise((resolve, reject) =>
     jwt.sign(
       payload,

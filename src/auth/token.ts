@@ -5,7 +5,7 @@ import { verifyJWT } from "./tools";
 import { Request, Response, NextFunction, RequestHandler } from "express";
 
 
-export const JWTAuthMiddleware: RequestHandler = async (req, res, next) => {
+export const JWTAuthMiddleware: RequestHandler = async (req: any, res: any, next: any) => {
   // 1. Check if Authorization header is received, if it is not --> 401
   if (!req.headers.authorization) {
     next(

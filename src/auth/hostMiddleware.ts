@@ -1,5 +1,4 @@
 import createHttpError from "http-errors";
-import  IUser  from "../interfaces/Iuser";
 
 
 export const hostMiddleware = (req:any, res:any, next:any) => {
