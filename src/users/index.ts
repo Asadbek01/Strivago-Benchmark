@@ -12,7 +12,7 @@ const usersRouter = express.Router();
 usersRouter.get("/", async (req, res, next) => {
   try {
     const users = await UserModel.find();
-    res.send(users);
+    res.status(200).send(users);
   } catch (error) {
     next(error);
   }
@@ -22,9 +22,9 @@ usersRouter.post("/register", async (req, res, next) => {
   try {
     const newUser = new UserModel(req.body)
     const { _id } = await newUser.save()
-    res.send({ _id })
+    res.status(200).send({ _id })
   } catch (error) {
-    next(error)
+    res.status(400).send(error)
   }
 });
 
@@ -62,7 +62,7 @@ usersRouter.post("/login", async (req:any, res:any, next:any) => {
       next(createHttpError(401, "Credentials not ok!"))
     }
   } catch (error) {
-    next(error)
+    res.status(401).send(error)
   }
 });
 
