@@ -20,7 +20,7 @@ interface UserModel extends Model<UserDocument> {
 const { Schema, model } = mongoose
 
 export const UserSchema = new Schema<IUser, UserModel>({
-  name: { type: String },
+  name: { type: String, required: true },
   surname: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
