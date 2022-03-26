@@ -58,12 +58,12 @@ describe('Testing all the user routes', () => {
         password: "0000"
     }
 
-    const validAccomadationRequest = {
-        name: "big house",
-        description: "cool",
-        maxGuests: 5, 
-        host: ""
-    }
+    // const validAccomadationRequest = {
+    //     name: "big house",
+    //     description: "cool",
+    //     maxGuests: 5, 
+    //     host: ""
+    // }
 
 
     it('Should create a new user with a hashed password but not returned', async () => {
@@ -95,7 +95,7 @@ describe('Testing all the user routes', () => {
     // let houseId: string
     // it('should add a new accomadation', async () => {
     //     const response = await request.post('/accommodations').send(validAccomadationRequest)
-    //     expect(response.status).toBe(201)
+    //     expect(response.status).toBe(200)
     //     expect(response.body._id).toBeDefined()
     //     houseId = response.body._id
     // })
