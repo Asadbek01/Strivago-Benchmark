@@ -19,13 +19,15 @@ accommodationRouter.get("/", async (req, res, next) => {
 accommodationRouter.post("/", async (req, res, next) => {
   try {
     const accommodation = new AccommodationModel(req.body);
-    const { _id } = await accommodation.save();
-    
-      res.status(201).send({_id});
-   
+    await accommodation.save();
+    if (accommodation) {
+      res.status(200).send(accommodation);
+    } else {
+      res.status(400).send();
+    }
   } catch (error) {
     res.status(400).send(); // this needs to change to next(httpCreateError())
-  
+    console.log(error);
   }
 });
 accommodationRouter.get("/:id", async (req, res, next) => {

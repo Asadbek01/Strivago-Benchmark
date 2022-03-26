@@ -6,5 +6,5 @@ export const AccommodationSchema = new Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   maxGuests: { type: Number, required: true },
-  host: { type: Schema.Types.ObjectId, required: true, ref: 'User' }
+  host: { type: Schema.Types.ObjectId,  ref: 'User' }
 });

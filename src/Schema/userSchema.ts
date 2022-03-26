@@ -17,6 +17,9 @@ interface UserDocument extends Document {
 interface UserModel extends Model<UserDocument> {
   checkCredentials(email:string, password:string):Promise<UserDocument |null>;
 }
+
+
+
 const { Schema, model } = mongoose
 
 export const UserSchema = new Schema<IUser, UserModel>({
@@ -27,7 +30,7 @@ export const UserSchema = new Schema<IUser, UserModel>({
   role: { type: String, default: "Guest", enum: ["Guest", "Host", "Attacker😨"] },
 })
 
-UserSchema.pre<any>("save", async function (next) {
+UserSchema.pre<UserDocument>("save", async function (next) {
   
   const newUser = this 
   const plainPw = newUser.password
