@@ -1,5 +1,6 @@
 import express from "express";
 import { AccommodationModel } from "../Schema/models";
+import { JWTAuthMiddleware } from "../auth/token";
 
 const accommodationRouter = express.Router();
 
@@ -7,7 +8,7 @@ accommodationRouter.get("/", async (req, res, next) => {
   try {
     const accommodation = await AccommodationModel.find();
     if (accommodation) {
-      res.status(200).send(accommodation);
+      res.status(200).send(accommodation)
     } else {
       res.status(404).send();
     }
@@ -16,20 +17,20 @@ accommodationRouter.get("/", async (req, res, next) => {
     console.log();
   }
 });
-accommodationRouter.post("/", async (req, res, next) => {
-  try {
-    const accommodation = new AccommodationModel(req.body);
-    await accommodation.save();
-    if (accommodation) {
-      res.status(201).send(accommodation);
-    } else {
-      res.status(400).send();
-    }
-  } catch (error) {
-    res.status(400).send(); // this needs to change to next(httpCreateError())
-    console.log(error);
-  }
-});
+// accommodationRouter.post("/",JWTAuthMiddleware ,async (req, res, next) => {
+//   try {
+//     const accommodation = new AccommodationModel({...req.body, host:req.user._id});
+//     await accommodation.save();
+//     if (accommodation) {
+//       res.status(201).send(accommodation);
+//     } else {
+//       res.status(400).send();
+//     }
+//   } catch (error) {
+//     res.status(400).send(); // this needs to change to next(httpCreateError())
+//     console.log(error);
+//   }
+// });
 accommodationRouter.get("/:id", async (req, res, next) => {
   try {
     const accommodation = await AccommodationModel.findById(req.params.id)
