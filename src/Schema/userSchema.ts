@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 import bcrypt from "bcrypt"
-//import IUser from '../interfaces/Iuser'
 import { Model } from 'mongoose';
 import {Document} from 'mongoose'
 import { IUser } from '../interfaces/Iuser';
